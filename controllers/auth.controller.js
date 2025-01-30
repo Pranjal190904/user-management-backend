@@ -43,7 +43,7 @@ const login = async (req, res) => {
             });
         }
 
-        const validPassword = bcrypt.compare(password, user.password); // Compare passwords
+        const validPassword =await bcrypt.compare(password, user.password); // Compare passwords
         if (!validPassword) {
             return res.status(400).json({ 
                 success: false,
