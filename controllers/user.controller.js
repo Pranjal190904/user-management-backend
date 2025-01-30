@@ -46,7 +46,10 @@ const sendNotification = async (req, res) => {
                     message: "Recipient not found" });
             }
 
-            const isAvailable = isUserAvailable(recipient.availabilityTime);  // Check if user is available
+            const isAvailable = true  
+            if(recipient.availabilityTime && recipient.availabilityTime.length > 0) {
+                isAvailable = isUserAvailable(recipient.availabilityTime);   // Check if user is available
+            }
             const newNotification = new Notification({ senderId: req.user.id, recipientId, message, status: 'pending' });
 
             if (isAvailable) {
