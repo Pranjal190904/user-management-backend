@@ -6,6 +6,7 @@ const authRoutes = require('./routes/auth.route.js');
 const userRoutes = require('./routes/user.route.js');
 const adminRoutes = require('./routes/admin.route.js');
 const setupSocket = require('./utils/socket.js');
+const cookieParser = require('cookie-parser');
 
 require('dotenv').config();
 connectDB(); // Connect to MongoDB database
@@ -17,6 +18,7 @@ const server = http.createServer(app); // Create HTTP server
 const io = socketIo(server); // Create Socket.io server
 
 app.use(express.json()); // Middleware to parse incoming requests with JSON payloads
+app.use(cookieParser()); // Middleware to parse incoming cookies
 app.set('io', io); // Set up socket.io instance
 
 app.use('/api/auth', authRoutes);
