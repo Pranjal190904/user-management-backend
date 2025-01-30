@@ -171,7 +171,8 @@ Access Token in Cookies or authorization header is required for authentication.
 ```json
 {
     "recipients":["679b8b37b462d8d607dd1b0e"],
-    "message":"hello, welcome to user management"
+    "message":"hello, welcome to user management",
+    "type":"critical"
 }
 ```
 
