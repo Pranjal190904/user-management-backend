@@ -1,4 +1,5 @@
 const User = require('../models/user.model.js');
+const Notification = require('../models/notification.model.js');
 const isUserAvailable = require('../utils/userAvailability.js');
 
 // controller to update user profile
@@ -68,6 +69,7 @@ const sendNotification = async (req, res) => {
             message: "Notification Sent" 
         });
     } catch (error) {
+        console.log(error)
         res.status(500).json({ 
             success: false,
             message: "Internal Server Error", 
